@@ -53,10 +53,10 @@ export default function JobDetailsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#131916] flex items-center justify-center p-4">
         <div className="text-center space-y-3">
-          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="text-xs text-slate-500 font-bold">جاري تحميل تفاصيل الوظيفة...</p>
+          <div className="w-12 h-12 border-4 border-[#3A604D] border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <p className="text-xs text-stone-500 font-bold">جاري تحميل تفاصيل الوظيفة...</p>
         </div>
       </div>
     );
@@ -64,14 +64,14 @@ export default function JobDetailsPage() {
 
   if (error || !job) {
     return (
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4 text-center">
-        <div className="max-w-md bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl space-y-4">
-          <Briefcase className="w-12 h-12 text-slate-400 mx-auto" />
-          <h2 className="text-xl font-black text-slate-900 dark:text-white">عذراً، الوظيفة غير متاحة</h2>
-          <p className="text-xs text-slate-500">{error || 'قد يكون تم إغلاق باب التقديم أو تم حذف الإعلان.'}</p>
+      <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#131916] flex items-center justify-center p-4 text-center">
+        <div className="max-w-md bg-white dark:bg-[#1B231F] p-8 rounded-3xl border border-stone-200 dark:border-[#2C3831] shadow-xl space-y-4">
+          <Briefcase className="w-12 h-12 text-stone-400 mx-auto" />
+          <h2 className="text-xl font-black text-stone-900 dark:text-white">عذراً، الوظيفة غير متاحة</h2>
+          <p className="text-xs text-stone-500">{error || 'قد يكون تم إغلاق باب التقديم أو تم حذف الإعلان.'}</p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-md"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-[#3A604D] hover:bg-[#47735D] text-white font-bold text-xs shadow-md"
           >
             <ArrowRight className="w-4 h-4" />
             <span>العودة لكافة الوظائف</span>
@@ -94,17 +94,17 @@ export default function JobDetailsPage() {
     ? `${job.salaryMin.toLocaleString('ar-EG')} - ${job.salaryMax.toLocaleString('ar-EG')} ${job.currency}`
     : job.salaryMin
     ? `يبدأ من ${job.salaryMin.toLocaleString('ar-EG')} ${job.currency}`
-    : 'راتب مجزي';
+    : 'راتب مجزي ومزايا';
 
   const shareText = encodeURIComponent(`فرصة عمل: ${job.title} في ${job.company} (${job.city})\nقدم الآن عبر الرابط:\n${typeof window !== 'undefined' ? window.location.href : ''}`);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#131916] text-[#222B26] dark:text-[#E4EBE7] font-sans selection:bg-[#3A604D] selection:text-white">
       
       {/* Top Bar */}
-      <header className="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+      <header className="sticky top-0 z-40 bg-[#FAF8F5]/90 dark:bg-[#131916]/90 backdrop-blur-md border-b border-stone-200/80 dark:border-[#26332C]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
-          <Link href="/" className="inline-flex items-center gap-2 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors">
+          <Link href="/" className="inline-flex items-center gap-2 text-xs font-bold text-stone-600 dark:text-stone-300 hover:text-[#3A604D] transition-colors">
             <ArrowRight className="w-4 h-4" />
             <span>العودة لجميع الوظائف</span>
           </Link>
@@ -114,7 +114,7 @@ export default function JobDetailsPage() {
               href={`https://wa.me/?text=${shareText}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-500 hover:border-emerald-500 transition-colors"
+              className="p-2.5 rounded-xl border border-stone-200 dark:border-[#2C3831] text-stone-600 dark:text-stone-300 hover:text-[#2E7D59] hover:border-[#2E7D59] transition-colors"
               title="مشاركة عبر الواتساب"
             >
               <Share2 className="w-4 h-4" />
@@ -124,7 +124,7 @@ export default function JobDetailsPage() {
               href={applyLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs shadow-md shadow-emerald-600/20 transition-all flex items-center gap-2"
+              className="px-5 py-2.5 rounded-2xl bg-[#2E7D59] hover:bg-[#378F67] text-white font-black text-xs shadow-md shadow-[#2E7D59]/20 transition-all flex items-center gap-2"
             >
               <MessageSquare className="w-4 h-4" />
               <span>تقديم بالواتساب</span>
@@ -141,48 +141,48 @@ export default function JobDetailsPage() {
           <div className="lg:col-span-8 space-y-6">
             
             {/* Header Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+            <div className="bg-white dark:bg-[#1B231F] rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-[#2C3831] shadow-xs space-y-5">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600/10 to-indigo-600/10 border border-blue-500/20 flex items-center justify-center text-3xl shadow-inner">
+                  <div className="w-16 h-16 rounded-2xl bg-[#F4F1EA] dark:bg-[#232D28] border border-stone-200 dark:border-[#2C3831] flex items-center justify-center text-3xl shadow-inner">
                     {job.companyLogo || '💼'}
                   </div>
                   <div>
-                    <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-snug">
+                    <h1 className="text-xl sm:text-2xl font-black text-stone-900 dark:text-[#E4EBE7] leading-snug">
                       {job.title}
                     </h1>
-                    <p className="text-sm font-bold text-slate-600 dark:text-slate-300 mt-1">
+                    <p className="text-sm font-bold text-stone-600 dark:text-stone-300 mt-1">
                       {job.company}
                     </p>
                   </div>
                 </div>
 
-                <span className="text-xs font-mono text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-xl">
+                <span className="text-xs font-mono text-stone-400 bg-[#F5F2EB] dark:bg-[#232C27] px-3 py-1 rounded-xl">
                   #{job.code}
                 </span>
               </div>
 
               {/* Meta Pills */}
               <div className="flex flex-wrap gap-2 text-xs">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 font-semibold text-slate-700 dark:text-slate-300">
-                  <MapPin className="w-4 h-4 text-blue-500" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F5F2EB] dark:bg-[#222B26] font-semibold text-stone-700 dark:text-stone-300">
+                  <MapPin className="w-4 h-4 text-[#3A604D] dark:text-[#82C3A3]" />
                   {job.city} {job.district ? `(${job.district})` : ''}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 font-semibold text-slate-700 dark:text-slate-300">
-                  <Briefcase className="w-4 h-4 text-indigo-500" />
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F5F2EB] dark:bg-[#222B26] font-semibold text-stone-700 dark:text-stone-300">
+                  <Briefcase className="w-4 h-4 text-[#735A3D] dark:text-[#C5A880]" />
                   {job.type}
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-bold">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#EEF5F1] dark:bg-[#1A2820] text-[#2E5E44] dark:text-[#82C3A3] font-bold border border-[#CCE0D5] dark:border-[#2E4738]">
                   {job.category}
                 </span>
                 {job.urgent && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 font-bold border border-rose-200 dark:border-rose-800">
+                  <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#FDF2F0] dark:bg-[#2C1917] text-[#B34535] dark:text-[#E89284] font-bold border border-[#F2D1CB] dark:border-[#4A2521]">
                     <Zap className="w-3.5 h-3.5" />
                     توظيف عاجل
                   </span>
                 )}
                 {job.source === 'whatsapp_bot' && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-200 dark:border-emerald-800">
+                  <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#EEF5F1] dark:bg-[#1C2C23] text-[#2E7D59] dark:text-[#82C3A3] font-bold border border-[#CCE0D5] dark:border-[#2E4738]">
                     <Bot className="w-3.5 h-3.5" />
                     منشور عبر بوت واتساب
                   </span>
@@ -191,25 +191,25 @@ export default function JobDetailsPage() {
             </div>
 
             {/* Description & Overview */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-              <h2 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+            <div className="bg-white dark:bg-[#1B231F] rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-[#2C3831] shadow-xs space-y-4">
+              <h2 className="text-base font-black text-stone-900 dark:text-[#E4EBE7] flex items-center gap-2">
                 <span>وصف الوظيفة والمهام المطلوبة</span>
               </h2>
-              <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">
+              <div className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed whitespace-pre-line">
                 {job.description}
               </div>
             </div>
 
             {/* Requirements */}
             {job.requirements && job.requirements.length > 0 && (
-              <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-                <h2 className="text-base font-black text-slate-900 dark:text-white">
+              <div className="bg-white dark:bg-[#1B231F] rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-[#2C3831] shadow-xs space-y-4">
+                <h2 className="text-base font-black text-stone-900 dark:text-[#E4EBE7]">
                   المؤهلات والشروط
                 </h2>
                 <div className="space-y-2.5">
                   {job.requirements.map((req, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-                      <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+                      <CheckCircle className="w-4 h-4 text-[#2E7D59] shrink-0 mt-0.5" />
                       <span>{req}</span>
                     </div>
                   ))}
@@ -219,14 +219,14 @@ export default function JobDetailsPage() {
 
             {/* Benefits */}
             {job.benefits && job.benefits.length > 0 && (
-              <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-                <h2 className="text-base font-black text-slate-900 dark:text-white">
+              <div className="bg-white dark:bg-[#1B231F] rounded-3xl p-6 sm:p-8 border border-stone-200 dark:border-[#2C3831] shadow-xs space-y-4">
+                <h2 className="text-base font-black text-stone-900 dark:text-[#E4EBE7]">
                   المزايا والحوافز
                 </h2>
                 <div className="space-y-2.5">
                   {job.benefits.map((ben, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-                      <Sparkles className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+                      <Sparkles className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
                       <span>{ben}</span>
                     </div>
                   ))}
@@ -240,27 +240,27 @@ export default function JobDetailsPage() {
           <div className="lg:col-span-4 space-y-6 sticky top-24">
             
             {/* Quick Apply Card */}
-            <div className="bg-gradient-to-b from-blue-950/20 to-white dark:to-slate-900 rounded-3xl p-6 border border-blue-500/30 shadow-lg space-y-6">
+            <div className="bg-gradient-to-b from-[#F2F6F3] to-white dark:from-[#1E2923] dark:to-[#171F1B] rounded-3xl p-6 border border-[#CCE0D5] dark:border-[#2E4738] shadow-sm space-y-6">
               
               <div>
-                <span className="text-[11px] font-bold text-slate-400 block mb-1">الراتب المتوقع</span>
-                <div className="text-xl font-black text-emerald-600 dark:text-emerald-400">
+                <span className="text-[11px] font-bold text-stone-500 block mb-1">الراتب المتوقع</span>
+                <div className="text-xl font-black text-[#2E7D59] dark:text-[#82C3A3]">
                   {salaryDisplay}
                 </div>
               </div>
 
-              <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-300">
+              <div className="space-y-3 pt-4 border-t border-stone-200/80 dark:border-[#2A3930] text-xs text-stone-600 dark:text-stone-300">
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400">الخبرة المطلوبة:</span>
-                  <span className="font-bold text-slate-900 dark:text-white">{job.experienceLevel}</span>
+                  <span className="text-stone-400">الخبرة المطلوبة:</span>
+                  <span className="font-bold text-stone-900 dark:text-white">{job.experienceLevel}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400">نظام العمل:</span>
-                  <span className="font-bold text-slate-900 dark:text-white">{job.type}</span>
+                  <span className="text-stone-400">نظام العمل:</span>
+                  <span className="font-bold text-stone-900 dark:text-white">{job.type}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400">طريقة التقديم:</span>
-                  <span className="font-bold text-emerald-600">واتساب مباشر</span>
+                  <span className="text-stone-400">طريقة التقديم:</span>
+                  <span className="font-bold text-[#2E7D59] dark:text-[#82C3A3]">واتساب مباشر</span>
                 </div>
               </div>
 
@@ -269,31 +269,31 @@ export default function JobDetailsPage() {
                 href={applyLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-black text-sm shadow-xl shadow-emerald-600/25 transition-all flex items-center justify-center gap-2"
+                className="w-full py-4 rounded-2xl bg-[#2E7D59] hover:bg-[#378F67] active:scale-95 text-white font-black text-sm shadow-md shadow-[#2E7D59]/20 transition-all flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-5 h-5" />
                 <span>قدم سيرتك الذاتية عبر الواتساب</span>
               </a>
 
-              <p className="text-[11px] text-center text-slate-400 leading-relaxed">
-                ستفتح لك محادثة واتساب رسمية ومجهزة مسبقاً بكود الوحدة لتسليم الـ CV مباشرة.
+              <p className="text-[11px] text-center text-stone-400 leading-relaxed">
+                ستفتح لك محادثة واتساب رسمية ومجهزة مسبقاً بكود الوظيفة لتسليم الـ CV مباشرة.
               </p>
 
             </div>
 
             {/* Related Jobs */}
             {relatedJobs.length > 0 && (
-              <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-                <h3 className="text-xs font-black text-slate-900 dark:text-white">وظائف مشابهة قد تهمك:</h3>
+              <div className="bg-white dark:bg-[#1B231F] rounded-3xl p-5 border border-stone-200 dark:border-[#2C3831] shadow-xs space-y-3">
+                <h3 className="text-xs font-black text-stone-900 dark:text-white">وظائف مشابهة قد تهمك:</h3>
                 <div className="space-y-2">
                   {relatedJobs.map((rj) => (
                     <Link
                       key={rj.code}
                       href={`/jobs/${rj.slug}`}
-                      className="block p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 border border-slate-100 dark:border-slate-800 transition-colors"
+                      className="block p-3 rounded-2xl hover:bg-[#F8F6F0] dark:hover:bg-[#232D28] border border-stone-100 dark:border-[#2C3831] transition-colors"
                     >
-                      <h4 className="text-xs font-bold text-slate-900 dark:text-white truncate">{rj.title}</h4>
-                      <p className="text-[11px] text-slate-400 mt-0.5">{rj.company} • {rj.city}</p>
+                      <h4 className="text-xs font-bold text-stone-900 dark:text-white truncate">{rj.title}</h4>
+                      <p className="text-[11px] text-stone-400 mt-0.5">{rj.company} • {rj.city}</p>
                     </Link>
                   ))}
                 </div>
@@ -306,15 +306,15 @@ export default function JobDetailsPage() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-20 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500">
+      <footer className="mt-20 bg-[#F5F2EB]/60 dark:bg-[#0F1411] border-t border-stone-200 dark:border-[#26332C] py-8 text-center text-xs text-stone-500">
         <p>© {new Date().getFullYear()} منصة شغل. جميع الحقوق محفوظة.</p>
-        <p className="pt-3 border-t border-slate-200/60 dark:border-slate-900 mt-3">
+        <p className="pt-3 border-t border-stone-200/60 dark:border-[#26332C] mt-3">
           <span>تم التصميم والإنشاء بواسطة </span>
           <a
             href="https://ebnywep.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 font-bold underline underline-offset-4"
+            className="text-[#3A604D] dark:text-[#82C3A3] hover:underline font-bold underline-offset-4"
           >
             EbnyWep
           </a>

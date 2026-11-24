@@ -35,21 +35,21 @@ export default function ThemeToggle() {
   };
 
   if (!mounted) {
-    return <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800" />;
+    return <div className="w-9 h-9 rounded-xl bg-stone-100 dark:bg-[#1E2722]" />;
   }
 
   return (
     <button
       onClick={toggleTheme}
       type="button"
-      className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors flex items-center justify-center border border-slate-200/80 dark:border-slate-700"
-      title={theme === 'dark' ? 'التبديل إلى الوضع النهاري' : 'التبديل إلى الوضع الليلي'}
+      className="p-2.5 rounded-xl bg-[#F4F1EA] hover:bg-[#EAE5DC] dark:bg-[#1E2722] dark:hover:bg-[#25322B] text-stone-700 dark:text-stone-200 transition-colors flex items-center justify-center border border-stone-200 dark:border-[#2C3831]"
+      title={theme === 'dark' ? 'التبديل إلى الوضع النهاري الهادئ' : 'التبديل إلى الوضع الليلي الطبيعي'}
       aria-label="Toggle Theme"
     >
       {theme === 'dark' ? (
-        <Sun className="w-4 h-4 text-amber-400" />
+        <Sun className="w-4 h-4 text-[#D8B47C]" />
       ) : (
-        <Moon className="w-4 h-4 text-slate-600" />
+        <Moon className="w-4 h-4 text-stone-600" />
       )}
     </button>
   );
